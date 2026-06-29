@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { FiPlus, FiTrash2 } from 'react-icons/fi';
 import toast from 'react-hot-toast';
 import api from '../utils/api.js';
-import LoadingSpinner from '../components/UI/LoadingSpinner.jsx';
+import LoadingSpinner from '../components/LoadingSpinner.jsx';
 
 const CATEGORIES = ['Breakfast', 'Lunch', 'Dinner', 'Appetizer', 'Dessert', 'Snack', 'Beverage', 'Salad', 'Soup', 'Vegan'];
 const CUISINES = ['Italian', 'Chinese', 'Indian', 'Mexican', 'American', 'Japanese', 'Thai', 'French', 'Mediterranean', 'Bengali', 'Other'];
