@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FiDollarSign, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
-import api from './utils/api.js';
+import api from '../utils/api.js';
 import LoadingSpinner from '../components/LoadingSpinner.jsx';
 import toast from 'react-hot-toast';
 

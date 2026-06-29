@@ -4,8 +4,8 @@ import { FiCheck, FiStar, FiZap } from 'react-icons/fi';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import toast from 'react-hot-toast';
-import api from '../../utils/api.js';
-import { useAuth } from '../../context/AuthContext.jsx';
+import api from '../utils/api.js';
+import { useAuth } from '../context/AuthContext.jsx';
 import { useNavigate } from 'react-router-dom';
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
