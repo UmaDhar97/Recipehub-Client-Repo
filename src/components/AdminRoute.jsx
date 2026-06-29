@@ -3,7 +3,7 @@ import { useAuth } from '../context/AuthContext.jsx';
 import LoadingSpinner from '../components/LoadingSpinner.jsx';
 
 export default function AdminRoute({ children }) {
-  const { user, loading, isAdmin } = useAuth();
+  const { user, loading } = useAuth();
 
   if (loading) {
     return (
@@ -13,8 +13,12 @@ export default function AdminRoute({ children }) {
     );
   }
 
-  if (!user || !isAdmin) {
-    return <Navigate to="/" replace />;
+  if (!user) {
+    return <Navigate to="/login" replace />;
+  }
+
+  if (user.role !== 'admin') {
+    return <Navigate to="/dashboard" replace />;
   }
 
   return children;

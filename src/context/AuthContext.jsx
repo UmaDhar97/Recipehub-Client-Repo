@@ -39,13 +39,14 @@ export const AuthProvider = ({ children }) => {
   };
 
   const login = async (email, password) => {
-    const res = await api.post('/auth/login', { email, password });
-    const { token, user: userData } = res.data;
-    localStorage.setItem('rh_token', token);
-    localStorage.setItem('rh_user', JSON.stringify(userData));
-    setUser(userData);
-    return res.data;
-  };
+  const res = await api.post('/auth/login', { email, password });
+  const { token, user: userData } = res.data;
+  localStorage.setItem('rh_token', token);
+  localStorage.setItem('rh_user', JSON.stringify(userData));
+  setUser(userData);
+  console.log('User role:', userData.role);
+  return res.data;
+};
 
   const googleLogin = async () => {
     const result = await signInWithPopup(auth, googleProvider);

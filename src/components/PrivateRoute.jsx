@@ -18,5 +18,10 @@ export default function PrivateRoute({ children }) {
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
+  
+  if (user.role === 'admin' && location.pathname.startsWith('/dashboard')) {
+    return <Navigate to="/admin" replace />;
+  }
+
   return children;
 }

@@ -21,22 +21,23 @@ export default function Login() {
   const handleChange = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }));
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    try {
-      const res = await login(form.email, form.password);
-      toast.success('Welcome back!');
-      if (res.user?.role === 'admin') {
-        navigate('/admin', { replace: true });
-      } else {
-        navigate('/', { replace: true });
-      }
-    } catch (err) {
-      toast.error(err.response?.data?.message || 'Invalid credentials.');
-    } finally {
-      setLoading(false);
+  e.preventDefault();
+  setLoading(true);
+  try {
+    const res = await login(form.email, form.password);
+    toast.success('Welcome back!');
+    console.log('Login response:', res);
+    if (res.user?.role === 'admin') {
+      navigate('/admin', { replace: true });
+    } else {
+      navigate('/dashboard', { replace: true });
     }
-  };
+  } catch (err) {
+    toast.error(err.response?.data?.message || 'Invalid credentials.');
+  } finally {
+    setLoading(false);
+  }
+};
 
   const handleGoogle = async () => {
     setGoogleLoading(true);
